@@ -9,6 +9,7 @@ openai = "*"
 google-search-results = "*"
 faiss-cpu = "*"
 todoist-api-python = "*"
+pytest = "*"
 
 [dev-packages]
 

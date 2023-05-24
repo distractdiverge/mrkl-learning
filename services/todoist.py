@@ -1,8 +1,10 @@
+from .logging import AbstractLogger
+
 from todoist_api_python.api_async import TodoistAPIAsync
 
 class TodoistSDK:
-    def __init__(self, token:str):
-        self._api = TodoistAPIAsync(token)
+    def __init__(self, api_token:str, logger:AbstractLogger):
+        self._api = TodoistAPIAsync(api_token)
             
     async def get_tasks(self):
         try:

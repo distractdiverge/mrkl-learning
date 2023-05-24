@@ -23,3 +23,7 @@ class AbstractLogger(ABC):
 
     def error(self, message:str) -> None:
         return self.log(LogLevel.ERROR, message)
+
+class ConsoleLogger(AbstractLogger):
+    def log(self, level:LogLevel, message:str) -> None:
+        print("[{0}]: {1}").format(level, message)
