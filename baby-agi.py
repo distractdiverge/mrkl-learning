@@ -1,13 +1,8 @@
-import os
-from collections import deque
-from typing import Dict, List, Optional, Any
+from typing import Optional
 
 from langchain import LLMChain, OpenAI, PromptTemplate
 from langchain.embeddings import OpenAIEmbeddings
-from langchain.llms import BaseLLM
 from langchain.vectorstores.base import VectorStore
-from pydantic import BaseModel, Field
-from langchain.chains.base import Chain
 from langchain.experimental import BabyAGI
 
 from langchain.vectorstores import FAISS
@@ -17,6 +12,7 @@ from langchain.tools import ShellTool
 
 # Define your embedding model
 embeddings_model = OpenAIEmbeddings()
+
 # Initialize the vectorstore as empty
 import faiss
 
@@ -48,7 +44,7 @@ tools = [
     ),
     Tool(
         name="Analyze",
-        func=search.run,
+        func=analyze_chain.run,
         description="useful for when you need to analyze a large amount of information",
     ),
     Tool(
@@ -78,7 +74,7 @@ agent_executor = AgentExecutor.from_agent_and_tools(
 )
 
 
-OBJECTIVE = "Search scholarly articles to determine what form of blueberries are the most effective at helping short term memory."
+OBJECTIVE = "Find summer camps or day programs for a 12 year old boy in acting, improv or theater and voice-over. The camp must be within 20 minutes of Warrington, PA."
 # Logging of LLMChains
 verbose = False
 # If None, will keep on going forever
