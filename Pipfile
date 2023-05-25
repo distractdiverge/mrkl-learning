@@ -10,6 +10,7 @@ google-search-results = "*"
 faiss-cpu = "*"
 todoist-api-python = "*"
 pytest = "*"
+pytest-cov = "*"
 
 [dev-packages]
 

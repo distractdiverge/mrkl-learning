@@ -8,7 +8,7 @@ class LogLevel(Enum):
     ERROR = 0
 
 class AbstractLogger(ABC):
-    @abstractmethod()
+    @abstractmethod
     def log(self, level:LogLevel, message:str) -> None:
         pass
 
@@ -26,4 +26,4 @@ class AbstractLogger(ABC):
 
 class ConsoleLogger(AbstractLogger):
     def log(self, level:LogLevel, message:str) -> None:
-        print("[{0}]: {1}").format(level, message)
+        print("[{0}]: {1}".format(level, message))
